@@ -1,10 +1,14 @@
+let input () = Scanf.scanf "%d %d %d\n" (fun x y z -> (x, y, z))
+
+let rec solve n total =
+  match n with
+  | 0 -> total
+  | _ ->
+      let x, y, z = input () in
+      if x + y + z >= 2 then solve (n - 1) (total + 1) else solve (n - 1) total
+
 let main () =
   let n = read_int () in
-  let m = ref 0 in
-  for i = 1 to n do
-    let x, y, z = Scanf.scanf "%d %d %d\n" (fun x y z -> (x, y, z)) in
-    if x + y + z >= 2 then m := !m + 1
-  done;
-  Printf.printf "%d\n" !m
+  Printf.printf "%d\n" (solve n 0)
 
 let () = main ()
