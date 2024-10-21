@@ -4,7 +4,7 @@ let solve s =
   else Printf.printf "%c%d%c\n" s.[0] (size - 2) s.[size - 1]
 
 let main () =
-  let n = int_of_string (read_line ()) in
+  let n = read_int () in
   for i = 1 to n do
     let s = read_line () in
     solve s
